@@ -6,6 +6,7 @@ class Employee:
         self.first = first
         self.last = last
         self.pay = pay
+        self.email = first + '.' + last + '@gmail.com'
         Employee.num_emp += 1       # Accessing Class Variable by using class
     
     def fullname(self):
@@ -30,16 +31,12 @@ class Employee:
         return True
     
         
-
-
-
-    
 emp1 = Employee('Adarsh' , 'Bobade' , 50000)
 emp2 = Employee('Dave' , 'mustaine' , 90000)
 emp3 = Employee('James' , 'Hetfield' , 6000)
 emp4 = 'John-don-80000'
 emp4_new = Employee.from_string(emp4)
-print(emp4_new.__dict__)
+# print(emp4_new.__dict__)
 
 # print(emp1.fullname())
 # print(emp1.company)
@@ -60,3 +57,39 @@ print(emp4_new.__dict__)
 # emp1.pay_raise()
 # print(emp1.pay)
     
+class Developer(Employee) :    # Creating a subclass from the Employee class (Parent) depicting Inheritance
+    raise_amount = 1.50
+    def __init__(self,first,last,pay,prog_lang):
+        super().__init__(first,last,pay)    # Borrow __init__ from Employee class 
+        # The moment __init__ is defined in child class , Parent's __init__ is dead , we have to use it explicitly using super()!
+        self.prog_lang = prog_lang
+    
+
+dev1 = Developer('John' , 'Lennon' , 23450 , 'Python')
+dev2 = Developer('Kurt' , 'Cobain' , 500 , 'C++')
+dev3 = Developer('Bon', 'Jovi',750 , 'SQL')
+
+class Manager(Employee):
+    def __init__(self,first,last,pay,employees = None):
+        super().__init__(first,last,pay)
+        if employees is None:
+            self.employees = []
+        else:
+            self.employees = employees
+    
+    def add_emp(self,emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+        
+    def print_emp(self):
+        for emp in self.employees:
+            print('-->',emp.fullname())
+        
+
+# dev1.pay_raise()    # So it used Employee class method {.pay_raise()} but with its own modified variable i.e, raise_amount = 1.50
+# print(dev1.pay)
+print(dev3.email)
+
+mng1 = Manager('Steve','Smith', 80000,[dev1,dev2,dev3])
+mng1.add_emp(emp1)
+mng1.print_emp()
