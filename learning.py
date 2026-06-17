@@ -93,3 +93,36 @@ print(dev3.email)
 mng1 = Manager('Steve','Smith', 80000,[dev1,dev2,dev3])
 mng1.add_emp(emp1)
 mng1.print_emp()
+
+
+# Dunder Methods (Double Underscore methods)
+# PYTHON IS ONE GIGANTIC OBJECT ORIENTED SYSTEM !
+# print(a+b) --> print((a).__add__(b)) ; __add__() is a dunder method
+# print('abc') --> print('abc'.__str__()) ; 'abc' is an Object of class str !
+class Person:
+    def __new__(cls,first,last,age):
+        print("Creating object...")
+        return super().__new__(cls)
+
+    def __init__(self,first,last,age):
+        print("Initializing object...")
+        self.first = first
+        self.last = last
+        self.age = age
+        self.email = first + '.' + last + '@gmail.com'
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+    
+    def __repr__(self):
+        return "Employee('{}','{}',{})".format(self.first, self.last, self.age)
+    
+    def __str__(self):
+        return "{} - {}".format(self.fullname() , self.email)
+    
+
+p1 = Person('Adarsh','Bobade',20)
+print(p1)
+
+
+
+
