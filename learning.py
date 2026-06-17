@@ -110,6 +110,11 @@ class Person:
         self.last = last
         self.age = age
         self.email = first + '.' + last + '@gmail.com'
+
+    @property   # Property decorator makes the method act like normal attribute
+    def email(self):
+        return '{}.{}@gmail.com'.format(self.first , self.last)
+    
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
     
