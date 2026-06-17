@@ -109,20 +109,30 @@ class Person:
         self.first = first
         self.last = last
         self.age = age
-        self.email = first + '.' + last + '@gmail.com'
+        # self.email = first + '.' + last + '@gmail.com'
 
     @property   # Property decorator makes the method act like normal attribute
     def email(self):
         return '{}.{}@gmail.com'.format(self.first , self.last)
     
+    # @property
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
+    
+    # @fullname.setter    # Now it'll take fullname and break it into first and last 
+    # def fullname(self,name):
+    #     first , last = name.split(' ')
+    #     self.first = first
+    #     self.last = last
+
     
     def __repr__(self):
         return "Employee('{}','{}',{})".format(self.first, self.last, self.age)
     
     def __str__(self):
         return "{} - {}".format(self.fullname() , self.email)
+    
+
     
 
 p1 = Person('Adarsh','Bobade',20)
