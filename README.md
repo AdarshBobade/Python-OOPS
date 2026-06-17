@@ -11,3 +11,8 @@ Learning OOPS using Python
 - Inheritance
   - Created Subclasses
   - Used (`super()`)
+
+- Dunder methods
+  - Learned about dunder methods
+  - (`__init__()`) vs (`__new__()`)
+  - (`__repr__()`) vs (`__str__()`)
