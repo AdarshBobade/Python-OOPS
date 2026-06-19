@@ -1,4 +1,4 @@
-# Python-OOPS
+# Python-OOPS & Other
 
 Learning OOPS using Python
 
@@ -16,3 +16,7 @@ Learning OOPS using Python
   - Learned about dunder methods
   - `__init__()` vs `__new__()`
   - `__repr__()` vs `__str__()`
+
+- Decorators
+  - Takes another func as `arg` , wraps it inside a new function (using `Closure`) , returns the new `wrapper` function
+  - 
